@@ -1,0 +1,6 @@
+<div *ngIf="currentRaid">
+  <span>{{currentRaid.name}}</span>
+  <div *ngFor="let boss of bosses">
+    <span>{{boss.name}}</span>
+  </div>
+</div>

@@ -16,7 +16,6 @@ export class FeedComponent implements OnInit {
   constructor(private _articleService: ArticleService) { }
 
   ngOnInit() {
-    console.log('init');
     this._articleService.getArticles().then(
       articles => this.articles = articles
     );
