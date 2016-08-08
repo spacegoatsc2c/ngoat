@@ -9,10 +9,17 @@ import { ArticleService } from '../article.service';
   styleUrls: ['article-writer.component.css']
 })
 export class ArticleWriterComponent implements OnInit {
+  public article: Article;
 
   constructor(private _articleService: ArticleService) { }
 
   ngOnInit() {
+    this.article = <Article>{};
+  }
+
+  submit(){
+    this._articleService.publishArticle(this.article);
+    this.article = <Article>{};
   }
 
 }
