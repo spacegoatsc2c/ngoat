@@ -15,6 +15,7 @@ export const ARTICLES: Article[] = [
     {
         author: USER,
         tags: ['video'],
+        character: CHARACTERS[1],
         youtube: 'https://www.youtube.com/watch?v=uA8Jm1t-K68'
     },
     {
@@ -26,6 +27,11 @@ export const ARTICLES: Article[] = [
         author: USER,
         tags: ['link'],
         link: 'http://www.mmo-champion.com/content/'
+    },
+    {
+        author: USER,
+        tags: ['logs'],
+        log: 'https://www.warcraftlogs.com/reports/8zcJCBpZnr41KbN9'
     },
     {
         author: USER,

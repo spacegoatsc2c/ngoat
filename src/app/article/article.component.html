@@ -1,1 +1,5 @@
+<img *ngIf="article.character" src="{{article.character.portrait}}">
+<a *ngIf="article.link" href={{article.link}}>Link</a>
+<img *ngIf="article.image" src="{{article.image}}">
 <p>{{article.text}}</p>
+<small>{{article.author.username}}</small>

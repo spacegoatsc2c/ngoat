@@ -7,4 +7,5 @@ export class Character {
     tradeskill1: string;
     tradeskill2: string;
     wowclass: string;
+    portrait: string;
 }

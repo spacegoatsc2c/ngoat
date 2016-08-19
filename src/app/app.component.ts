@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { UserService } from './user.service';
+import { User } from './user';
 import { ArticleService } from './article.service';
 import { FeedComponent } from './feed/feed.component';
 import { RosterComponent } from './roster/roster.component';
@@ -15,6 +17,15 @@ import { ArticleWriterComponent } from './article-writer/article-writer.componen
   directives: [FeedComponent, RosterComponent, RaidComponent, ArticleWriterComponent],
   providers: [ArticleService, CharacterService, RaidService]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'app works!';
+  public user: User;
+
+  constructor(private _userService: UserService) { }
+
+  ngOnInit(){
+      this._userService.getUser().then(
+          user => this.user = user
+      );
+  }
 }

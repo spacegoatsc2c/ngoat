@@ -1,17 +1,17 @@
 import { User } from './user';
 import { Character } from './character';
 
-export class Raid {
+export interface Raid {
     name: string;
     logo: string;
     tier: number;
 }
 
-export class Boss {
+export interface Boss {
     name: string;
     logo: string;
     raid: Raid;
     is_dead: boolean;
-    strategy_guide: string;
+    strategy_guide?: string;
     ordering: number;
 }

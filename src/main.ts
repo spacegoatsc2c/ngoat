@@ -10,12 +10,15 @@ import { AppComponent, environment } from './app/';
 import {bootstrap} from '@angular/platform-browser-dynamic'
 import { HTTP_PROVIDERS } from '@angular/http';
 
+import { UserService } from './app/user.service';
+
 if (environment.production) {
   enableProdMode();
 }
 
 bootstrap(AppComponent, [
     HTTP_PROVIDERS,
+    UserService,
     { provide: XHRBackend, useClass: InMemoryBackendService }, // in-mem server
     { provide: SEED_DATA,  useClass: OfflineData },
     ]);
