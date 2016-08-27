@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { ArticleService } from '../article.service';
 import { RaidService } from '../raid.service';
-import { FeedComponent } from '../feed/';
-import { BossComponent } from '../boss/';
 import { Article } from '../article';
 import { Boss } from '../raid';
 

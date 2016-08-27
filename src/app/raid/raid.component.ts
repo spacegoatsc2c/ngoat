@@ -13,10 +13,10 @@ export class RaidComponent implements OnInit {
   public currentRaid:Raid;
   public bosses:Boss[];
 
-  constructor(private _raidService:RaidService) { }
+  constructor(private raidService:RaidService) { }
 
   ngOnInit() {
-    this._raidService.getRaids().then(
+    this.raidService.getRaids().then(
       raids => this.initRaids(raids)
     );
   }
@@ -28,7 +28,7 @@ export class RaidComponent implements OnInit {
 
   changeRaid(raid:Raid){
     this.currentRaid = raid;
-    this._raidService.getBosses(this.currentRaid).then(
+    this.raidService.getBosses(this.currentRaid).then(
       bosses => this.bosses = bosses
     );
   }

@@ -6,6 +6,7 @@ import { Raid, Boss } from '../raid';
 import { ArticleService } from '../article.service';
 import { CharacterService } from '../character.service';
 import { RaidService } from '../raid.service';
+import { UserService } from '../user.service';
 
 @Component({
   moduleId: module.id,
@@ -14,6 +15,7 @@ import { RaidService } from '../raid.service';
   styleUrls: ['article-writer.component.css']
 })
 export class ArticleWriterComponent implements OnInit {
+  public user: User;
   public article: Article;
   public link: string;
   public character: Character;
@@ -24,27 +26,22 @@ export class ArticleWriterComponent implements OnInit {
   public bosses: Boss[];
   public raids: Raid[];
 
-  constructor(private _articleService: ArticleService,
-              private _characterService: CharacterService,
-              private _raidService: RaidService) { }
-
-  @Input() user: User;
+  constructor(private articleService: ArticleService,
+              private userService: UserService,
+              private characterService: CharacterService,
+              private raidService: RaidService) { }
 
   ngOnInit() {
     this.article = <Article>{};
-    this._characterService.getCharacters().then(
+    this.characterService.getCharacters().then(
         characters => this.characters = characters
     );
-    this._raidService.getRaids().then(
+    this.raidService.getRaids().then(
         raids => this.getCurrentRaid(raids)
     );
-    if(this.user){
-        console.log(this.user);
-        if(this.user.main){
-            console.log(this.user.main);
-            this.character = this.user.main;
-        }
-    }
+    this.userService.getUser().then(
+      user => {this.user = user; this.character = this.user.main; }
+    );
   }
 
   getCurrentRaid(raids: Raid[]){
@@ -56,13 +53,13 @@ export class ArticleWriterComponent implements OnInit {
   }
 
   getBosses(){
-      this._raidService.getBosses(this.raid).then(
+      this.raidService.getBosses(this.raid).then(
           bosses => this.bosses = bosses
       )
   }
 
   submit(){
-    this._articleService.publishArticle(this.article);
+    this.articleService.publishArticle(this.article);
     this.article = <Article>{};
   }
 

@@ -17,7 +17,7 @@ export class RaidService {
   }
 
 
-  private bossUrl = 'app/bosses';
+  private bossesUrl = 'api/bosses';
 
   getBosses(raid: Raid){
     return this.http.get(this.bossUrl)
@@ -30,6 +30,15 @@ export class RaidService {
 
   getCurrent(){
     return this.http.get(this.currentBossUrl)
+         .toPromise()
+         .then(response => response.json().data as Boss)
+         .catch(this.handleError);
+  }
+
+  private bossUrl = 'api/boss/';
+
+  getBoss(id: number){
+    return this.http.get(this.bossUrl + id)
          .toPromise()
          .then(response => response.json().data as Boss)
          .catch(this.handleError);
