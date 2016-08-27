@@ -1,10 +1,12 @@
 import { Routes, RouterModule } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
 import { HomeComponent } from './home/';
+import { BossHomeComponent } from './boss-home/'
+import { CharacterHomeComponent } from './character-home/';
 
 const appRoutes: Routes = [
-  //{ path: 'boss/:id', component: BossHome },
-  //{ path: 'character/:name', component: CharacterHome },
+  { path: 'boss/:id', component: BossHomeComponent },
+  { path: 'character/:name', component: CharacterHomeComponent },
   { path: '**', component: HomeComponent }
 ];
 

@@ -26,6 +26,15 @@ export class RaidService {
          .catch(this.handleError);
   }
 
+  private currentBossUrl = 'api/current-boss';
+
+  getCurrent(){
+    return this.http.get(this.currentBossUrl)
+         .toPromise()
+         .then(response => response.json().data as Boss)
+         .catch(this.handleError);
+  }
+
   private handleError(error: any) {
     console.error('An error occurred', error);
     return Promise.reject(error.message || error);

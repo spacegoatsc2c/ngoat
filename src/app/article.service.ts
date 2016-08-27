@@ -29,6 +29,15 @@ export class ArticleService {
          .catch(this.handleError);
   }
 
+  private currentUrl = 'api/current-articles'
+
+  getCurrent(){
+    return this.http.get(this.currentUrl)
+         .toPromise()
+         .then(response => response.json().data as Article[])
+         .catch(this.handleError);
+  }
+
   private handleError(error: any) {
     console.error('An error occurred', error);
     return Promise.reject(error.message || error);
