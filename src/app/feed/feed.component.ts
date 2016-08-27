@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Input, Component, OnInit } from '@angular/core';
 import { ArticleComponent } from '../article/article.component';
 import { Article } from '../article';
 import { ArticleService } from '../article.service';
@@ -11,15 +11,10 @@ import { ArticleService } from '../article.service';
   directives: [ArticleComponent]
 })
 export class FeedComponent implements OnInit {
-  public articles:Article[];
+  @Input() public articles:Article[];
 
-  constructor(private _articleService: ArticleService) { }
+  constructor() { }
 
-  ngOnInit() {
-    this._articleService.getArticles().then(
-      articles => this.articles = articles
-    );
-
-  }
+  ngOnInit() { }
 
 }

@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent }   from './app.component';
 import { HttpModule }    from '@angular/http';
 import { UserService } from './user.service';
+import { routing,
+         appRoutingProviders } from './app.routing';
 
 @NgModule({
     declarations: [
@@ -12,10 +14,12 @@ import { UserService } from './user.service';
     imports: [
       BrowserModule,
       HttpModule,
-      FormsModule
+      FormsModule,
+      routing
     ],
     providers: [
-      UserService
+      UserService,
+      appRoutingProviders
     ],
     bootstrap: [AppComponent],
 })
