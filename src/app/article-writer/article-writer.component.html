@@ -1,18 +1,34 @@
 <div class="btn-group" data-toggle="buttons">
   <label class="btn btn-primary active">
-    <input type="radio" name="options" (click)="article_type = 'text'" autocomplete="off" checked>Text
+    <input type="radio"
+           name="options"
+           (click)="article.article_type = 'text'"
+           autocomplete="off"
+           checked>Text
   </label>
   <label class="btn btn-primary">
-    <input type="radio" name="options" (click)="article_type = 'link'" autocomplete="off">Link
+    <input type="radio"
+           name="options"
+           (click)="article.article_type = 'link'"
+           autocomplete="off">Link
   </label>
   <label class="btn btn-primary">
-    <input type="radio" name="options" (click)="article_type = 'image'" autocomplete="off">Image
+    <input type="radio"
+           name="options"
+           (click)="article.article_type = 'image'"
+           autocomplete="off">Image
   </label>
   <label class="btn btn-primary">
-    <input type="radio" name="options" (click)="article_type = 'log'" autocomplete="off">Log
+    <input type="radio"
+           name="options"
+           (click)="article.article_type = 'log'"
+           autocomplete="off">Log
   </label>
   <label class="btn btn-primary">
-    <input type="radio" name="options" (click)="article_type='youtube'" autocomplete="off">Youtube
+    <input type="radio"
+           name="options"
+           (click)="article.article_type='youtube'"
+           autocomplete="off">Youtube
   </label>
 </div>
 
@@ -41,5 +57,9 @@
 </div>
 
 <input [(ngModel)]="article.text">
-<input [(ngModel)]="link">
+<input [(ngModel)]="article.link">
 <button (click)="submit()">Submit</button>
+<div class="preview">
+  <h2>Preview</h2>
+  <app-article [(article)]='article'></app-article>
+</div>

@@ -24,9 +24,6 @@ export class ArticleWriterComponent implements OnInit {
   public bosses: Boss[];
   public raids: Raid[];
 
-  public article_type: string;
-
-
   constructor(private _articleService: ArticleService,
               private _characterService: CharacterService,
               private _raidService: RaidService) { }
@@ -65,15 +62,6 @@ export class ArticleWriterComponent implements OnInit {
   }
 
   submit(){
-    if(this.article_type === 'link'){
-        this.article.link = this.link;
-    }else if(this.article_type === 'log'){
-        this.article.log = this.link;
-    }else if(this.article_type === 'youtube'){
-        this.article.youtube = this.link
-    }else if(this.article_type === 'image'){
-        console.debug('add images');
-    }
     this._articleService.publishArticle(this.article);
     this.article = <Article>{};
   }

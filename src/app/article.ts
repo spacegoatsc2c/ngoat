@@ -8,8 +8,5 @@ export interface Article {
     boss?: Boss;
     character?: Character;
     link?: string;
-    log?: string;
-    text?: string;
-    youtube?: string;
-    image?: string;
+    article_type: string;
 }
