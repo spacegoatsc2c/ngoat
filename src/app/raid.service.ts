@@ -7,45 +7,45 @@ export class RaidService {
 
   constructor(private http:Http) { }
 
-  private raidUrl = 'app/raids';
+  private raidUrl = 'api/raids/';
 
   getRaids(){
     return this.http.get(this.raidUrl)
          .toPromise()
-         .then(response => response.json().data as Raid[])
+         .then(response => response.json().results as Raid[])
          .catch(this.handleError);
   }
 
 
-  private bossesUrl = 'api/bosses';
+  private raidBossesUrl = 'api/raidbosses/';
 
   getBosses(raid: Raid){
-    return this.http.get(this.bossUrl)
+    return this.http.get(this.raidBossesUrl + raid.id + '/')
          .toPromise()
-         .then(response => response.json().data as Boss[])
+         .then(response => response.json() as Boss[])
          .catch(this.handleError);
   }
 
-  private currentBossUrl = 'api/current-boss';
+  private currentBossUrl = 'api/current-boss/';
 
   getCurrent(){
     return this.http.get(this.currentBossUrl)
          .toPromise()
-         .then(response => response.json().data as Boss)
+         .then(response => response.json() as Boss)
          .catch(this.handleError);
   }
 
-  private bossUrl = 'api/boss/';
+  private bossUrl = 'api/bosses/';
 
   getBoss(id: number){
-    return this.http.get(this.bossUrl + id)
+    return this.http.get(this.bossUrl + id + '/')
          .toPromise()
-         .then(response => response.json().data as Boss)
+         .then(response => response.json() as Boss)
          .catch(this.handleError);
   }
 
   private handleError(error: any) {
-    console.error('An error occurred', error);
+    console.error('A raidservice error occurred', error);
     return Promise.reject(error.message || error);
   }
 

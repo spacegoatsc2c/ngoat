@@ -1,6 +1,6 @@
 <div *ngIf="currentRaid">
   <span>{{currentRaid.name}}</span>
   <div *ngFor="let boss of bosses">
-    <span>{{boss.name}}</span>
+    <a [routerLink]="['/boss', boss.id]" routerLinkActive="active">{{boss.name}}</a>
   </div>
 </div>

@@ -15,6 +15,7 @@ import { ArticleComponent } from './article/article.component';
 import { HomeComponent } from './home/';
 import { RosterComponent } from './roster/';
 import { RaidComponent } from './raid/raid.component';
+import { ProfileComponent } from './profile/';
 // Services
 import { RaidService } from './raid.service';
 import { ArticleService } from './article.service';
@@ -33,6 +34,7 @@ import { UserService } from './user.service';
       HomeComponent,
       RosterComponent,
       RaidComponent,
+      ProfileComponent,
     ],
     imports: [
       BrowserModule,

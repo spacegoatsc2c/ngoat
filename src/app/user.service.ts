@@ -2,14 +2,18 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { User } from './user';
 
-import 'rxjs/add/operator/toPromise';
-
 @Injectable()
 export class UserService {
+    public token: string;
 
-    constructor(private http: Http) { }
+    constructor(private http: Http) {
+      if(localStorage.getItem('user') !== null){
+        console.log('pulling user from local storage');
+        this.token = localStorage.getItem('user');
+      }
+    }
 
-    private userUrl = 'app/user';
+    private userUrl = 'api/user';
 
     getUser(){
       return this.http.get(this.userUrl)

@@ -43,6 +43,7 @@ const barrels: string[] = [
   'app/boss',
   'app/character-home',
   'app/boss-home',
+  'app/profile',
   /** @cli-barrel */
 ];
 

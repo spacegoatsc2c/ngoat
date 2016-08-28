@@ -9,7 +9,7 @@ export class ArticleService {
 
   constructor(private http: Http) { }
 
-  private articleUrl = 'app/articles';
+  private articleUrl = 'api/articles';
 
   publishArticle(article: Article){
     let headers = new Headers({

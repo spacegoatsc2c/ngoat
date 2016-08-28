@@ -2,6 +2,7 @@ import { User } from './user';
 import { Character } from './character';
 
 export interface Raid {
+    id: number;
     name: string;
     logo: string;
     tier: number;

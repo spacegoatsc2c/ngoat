@@ -7,12 +7,12 @@ export class CharacterService {
 
   constructor(private http:Http) { }
 
-  private characterUrl = 'app/characters';
+  private characterUrl = 'api/characters/';
 
   getCharacters(){
       return this.http.get(this.characterUrl)
            .toPromise()
-           .then(response => response.json().data as Character[])
+           .then(response => response.json().results as Character[])
            .catch(this.handleError);
     }
 
