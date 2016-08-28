@@ -17,9 +17,9 @@ export class UserService {
 
     private userUrl = 'api/user/';
 
-    getUser(){
+    getUser(token: string){
       let headers = new Headers({'Content-Type': 'application/json',
-                                 'Authorization': 'Token ' + this.token });
+                                 'Authorization': 'Token ' + token });
       let options = new RequestOptions({headers: headers});
 
       return this.http.get(this.userUrl, options)
@@ -43,7 +43,7 @@ export class UserService {
 
     private requestUser(token: string){
       this.token = token;
-      this.getUser();
+      return this.getUser(token);
     }
 
     private handleError(error: any) {

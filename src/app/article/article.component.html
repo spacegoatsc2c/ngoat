@@ -1,5 +1,6 @@
 <small>{{article.article_type}}</small>
 <img *ngIf="article.character" src="{{article.character.portrait}}">
+<p *ngIf="article.boss">{{article.boss.name}}</p>
 <a *ngIf="article.link" href={{article.link}}>Link</a>
 <p *ngIf="article.text">{{article.text}}</p>
 <small *ngIf="article.author">{{article.author.username}}</small>

@@ -1,3 +1,14 @@
 <p>
   profile works!
 </p>
+<div *ngIf="logged_in">
+  <p>{{user.username}}</p>
+</div>
+<div *ngIf="!logged_in">
+  <p *ngIf="errorText">{{errorText}}</p>
+  <form class="form-inline">
+    <input type="text" placeholder="Username" class="form-control" [(ngModel)]="username" name="username">
+    <input type="password" placeholder="Password" class="form-control" [(ngModel)]="password" name="password">
+    <button type="submit" class="btn" (click)="login()">Login</button>
+  </form>
+</div>
