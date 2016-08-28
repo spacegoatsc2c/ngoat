@@ -1,25 +1,27 @@
-<p>
-  profile works!
-</p>
-<div *ngIf="logged_in">
-  <p>{{user.username}}</p>
-</div>
-<div *ngIf="!logged_in">
-  <p *ngIf="errorText">{{errorText}}</p>
-  <form class="pure-form">
-      <fieldset>
-          <legend>Login</legend>
-          <input type="text"
-                 name="username"
-                 placeholder="Username"
-                 [(ngModel)]="username">
-          <input type="password"
-                 name="password"
-                 placeholder="Password"
-                 [(ngModel)]="password">
-          <button type="submit"
-                  (click)="login()"
-                  class="pure-button pure-button-primary">Sign in</button>
-      </fieldset>
-  </form>
+<div class="profile">
+  <p>
+    profile works!
+  </p>
+  <div *ngIf="logged_in">
+    <p>{{user.username}}</p>
+  </div>
+  <div *ngIf="!logged_in">
+    <p *ngIf="errorText">{{errorText}}</p>
+    <form class="pure-form">
+        <fieldset>
+            <legend>Login</legend>
+            <input type="text"
+                   name="username"
+                   placeholder="Username"
+                   [(ngModel)]="username">
+            <input type="password"
+                   name="password"
+                   placeholder="Password"
+                   [(ngModel)]="password">
+            <button type="submit"
+                    (click)="login()"
+                    class="pure-button pure-button-primary">Sign in</button>
+        </fieldset>
+    </form>
+  </div>
 </div>
