@@ -1,5 +1,5 @@
 <p>
   home works!
 </p>
-<app-feed [articles]='current_articles'></app-feed>
-<app-boss [boss]='current_boss'></app-boss>
+<app-feed *ngIf="current_articles" [(articles)]='current_articles'></app-feed>
+<app-boss *ngIf="current_boss" [(boss)]='current_boss'></app-boss>

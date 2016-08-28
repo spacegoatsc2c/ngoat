@@ -56,9 +56,10 @@
     </select>
 </div>
 
-<input [(ngModel)]="article.text">
-<input [(ngModel)]="article.link">
-<button (click)="submit()">Submit</button>
+<label>Text</label><input [(ngModel)]="article.text">
+<label>Link</label><input [(ngModel)]="article.link">
+<p *ngIf="!user">Must be logged in to submit</p>
+<button *ngIf="user" (click)="submit()">Submit</button>
 <div class="preview">
   <h2>Preview</h2>
   <app-article [(article)]='article'></app-article>

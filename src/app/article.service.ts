@@ -9,11 +9,12 @@ export class ArticleService {
 
   constructor(private http: Http) { }
 
-  private articleUrl = 'api/articles';
+  private articleUrl = 'api/articles/';
 
-  publishArticle(article: Article){
+  publishArticle(article: Article, token: string){
     let headers = new Headers({
-    'Content-Type': 'application/json'});
+        'Content-Type': 'application/json',
+        'Authorization': 'Token ' + token });
 
     return this.http
                .post(this.articleUrl, JSON.stringify(article), {headers: headers})
@@ -25,16 +26,23 @@ export class ArticleService {
   getArticles(){
     return this.http.get(this.articleUrl)
          .toPromise()
-         .then(response => response.json().data as Article[])
+         .then(response => response.json().results as Article[])
          .catch(this.handleError);
   }
 
-  private currentUrl = 'api/current-articles'
+  getArticle(id: number){
+    return this.http.get(this.articleUrl + id + '/')
+         .toPromise()
+         .then(response => response.json().results as Article)
+         .catch(this.handleError);
+  }
+
+  private currentUrl = 'api/current-articles/'
 
   getCurrent(){
     return this.http.get(this.currentUrl)
          .toPromise()
-         .then(response => response.json().data as Article[])
+         .then(response => response.json().results as Article[])
          .catch(this.handleError);
   }
 

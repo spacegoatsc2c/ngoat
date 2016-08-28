@@ -1,6 +1,7 @@
+<h2>Roster</h2>
 <div *ngFor="let character of characters">
   <span [class]="character.wowclass">
-    <a [routerLink]="['/character', character.name]" routerLinkActive="active">{{character.name}}</a>
+    <a [routerLink]="['/character', character.id]" routerLinkActive="active">{{character.name}}</a>
   </span>
   <span>{{character.ilvl}}</span>
 </div>

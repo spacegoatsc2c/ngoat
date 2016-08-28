@@ -3,7 +3,7 @@ import { Character } from './character';
 import { Boss, Raid } from './raid';
 
 export interface Article {
-    author: User;
+    author?: User;
     tags: string[];
     boss?: Boss;
     character?: Character;

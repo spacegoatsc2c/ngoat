@@ -33,6 +33,7 @@ export class ArticleWriterComponent implements OnInit {
 
   ngOnInit() {
     this.article = <Article>{};
+    this.article.article_type = 'text';
     this.characterService.getCharacters().then(
         characters => this.characters = characters
     );
@@ -59,7 +60,8 @@ export class ArticleWriterComponent implements OnInit {
   }
 
   submit(){
-    this.articleService.publishArticle(this.article);
+    console.log(this.article);
+    this.articleService.publishArticle(this.article, this.user.token);
     this.article = <Article>{};
   }
 

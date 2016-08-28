@@ -1,8 +1,16 @@
-<h1>
-  {{title}}
-</h1>
-<h2>roster</h2>
-<app-roster></app-roster>
-<h2>raid</h2>
-<app-raid></app-raid>
-<router-outlet></router-outlet>
+<a routerLink="">Home</a>
+<a routerLink="/profile">Profile</a>
+<a routerLink="/submit">Submit</a>
+<div class="main-outlet pure-g">
+  <div class="pure-u-4-5">
+    <router-outlet ></router-outlet>
+  </div>
+  <div class="pure-u-1-5">
+    <div class="roster">
+      <app-roster></app-roster>
+    </div>
+    <div class="raid">
+      <app-raid></app-raid>
+    </div>
+  </div>
+</div>

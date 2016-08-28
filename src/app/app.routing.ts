@@ -8,10 +8,10 @@ import { ProfileComponent } from './profile/';
 
 const appRoutes: Routes = [
   { path: 'boss/:id', component: BossHomeComponent },
-  { path: 'character/:name', component: CharacterHomeComponent },
+  { path: 'character/:id', component: CharacterHomeComponent },
   { path: 'submit', component: ArticleWriterComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: '**', component: HomeComponent }
+  { path: '**', component: HomeComponent },
 ];
 
 export const appRoutingProviders: any[] = [

@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Raid, Boss } from './raid.ts';
 
+import 'rxjs/add/operator/toPromise';
+
 @Injectable()
 export class RaidService {
 
@@ -22,7 +24,7 @@ export class RaidService {
   getBosses(raid: Raid){
     return this.http.get(this.raidBossesUrl + raid.id + '/')
          .toPromise()
-         .then(response => response.json() as Boss[])
+         .then(response => response.json().results as Boss[])
          .catch(this.handleError);
   }
 
@@ -31,7 +33,7 @@ export class RaidService {
   getCurrent(){
     return this.http.get(this.currentBossUrl)
          .toPromise()
-         .then(response => response.json() as Boss)
+         .then(response => response.json().results as Boss)
          .catch(this.handleError);
   }
 

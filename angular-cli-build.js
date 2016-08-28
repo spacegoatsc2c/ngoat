@@ -16,7 +16,8 @@ module.exports = function(defaults) {
       'reflect-metadata/**/*.+(ts|js|js.map)',
       'rxjs/**/*.+(js|js.map)',
       '@angular/**/*.+(js|js.map)',
-      'angular2-in-memory-web-api/**/*.+(js|js.map)'
+      'angular2-in-memory-web-api/**/*.+(js|js.map)',
+      'purecss/build/*-min.css',
     ]
   });
 };
