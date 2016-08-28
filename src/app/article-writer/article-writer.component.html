@@ -1,65 +1,99 @@
-<div class="btn-group" data-toggle="buttons">
-  <label class="btn btn-primary active">
-    <input type="radio"
-           name="options"
-           (click)="article.article_type = 'text'"
-           autocomplete="off"
-           checked>Text
-  </label>
-  <label class="btn btn-primary">
-    <input type="radio"
-           name="options"
-           (click)="article.article_type = 'link'"
-           autocomplete="off">Link
-  </label>
-  <label class="btn btn-primary">
-    <input type="radio"
-           name="options"
-           (click)="article.article_type = 'image'"
-           autocomplete="off">Image
-  </label>
-  <label class="btn btn-primary">
-    <input type="radio"
-           name="options"
-           (click)="article.article_type = 'log'"
-           autocomplete="off">Log
-  </label>
-  <label class="btn btn-primary">
-    <input type="radio"
-           name="options"
-           (click)="article.article_type='youtube'"
-           autocomplete="off">Youtube
-  </label>
-</div>
+<form class="pure-form pure-form-aligned article-form">
+  <fieldset>
+    <div class="pure-control-group pure-g" data-toggle="buttons">
+      <button class="pure-button pure-u-1-5"
+             [class.pure-button-primary]="article.article_type==='text'"
+             (click)="article.article_type = 'text'">Text</button>
+      <button class="pure-button pure-u-1-5"
+             [class.pure-button-primary]="article.article_type==='link'"
+             (click)="article.article_type = 'link'">Link</button>
+      <button class="pure-button pure-u-1-5"
+             [class.pure-button-primary]="article.article_type==='image'"
+             (click)="article.article_type = 'image'">Image</button>
+      <button class="pure-button pure-u-1-5"
+             [class.pure-button-primary]="article.article_type==='log'"
+             (click)="article.article_type = 'log'">Log</button>
+      <button class="pure-button pure-u-1-5"
+             [class.pure-button-primary]="article.article_type==='youtube'"
+             (click)="article.article_type='youtube'">Youtube</button>
+    </div>
 
-<div class="form-group">
-    <label for="characterSelect">Charcter</label>
-    <select [(ngModel)]="article.character" id="characterSelect">
+    <div *ngIf="characters" class="pure-control-group">
+      <label for="characterSelect">Charcter</label>
+      <select [(ngModel)]="article.character"
+              id="characterSelect">
         <option></option>
-        <option *ngFor="let c of characters" [ngValue]="c">{{c.name}}</option>
-    </select>
-</div>
+        <option *ngFor="let c of characters"
+                [ngValue]="c">{{c.name}}</option>
+      </select>
+    </div>
 
-<div class="form-group">
-    <label for="raidSelect">Raid</label>
-    <select [(ngModel)]="raid" (change)="getBosses()" id="raidSelect">
+    <div *ngIf="raids" class="pure-control-group">
+      <label for="raidSelect">Raid</label>
+      <select [(ngModel)]="raid"
+              (change)="getBosses()"
+              id="raidSelect">
         <option></option>
-        <option *ngFor="let r of raids" [ngValue]="r">{{r.name}}</option>
-    </select>
-</div>
+        <option *ngFor="let r of raids"
+                [ngValue]="r">{{r.name}}</option>
+      </select>
 
-<div *ngIf="bosses" class="form-group">
-    <label for="bossSelect">Boss</label>
-    <select [(ngModel)]="article.boss" id="bossSelect">
-        <option></option>
-        <option *ngFor="let b of bosses" [ngValue]="b">{{b.name}}</option>
-    </select>
-</div>
+      <div *ngIf="bosses">
+        <label for="bossSelect">Boss</label>
+        <select [(ngModel)]="article.boss" id="bossSelect">
+          <option></option>
+          <option *ngFor="let b of bosses"
+                  [ngValue]="b">{{b.name}}</option>
+        </select>
+      </div>
+    </div>
 
-<label>Text</label><input [(ngModel)]="article.text">
-<label>Link</label><input [(ngModel)]="article.link">
-<p *ngIf="!user">Must be logged in to submit</p>
-<button *ngIf="user" (click)="submit()">Submit</button>
+    <div *ngIf="article.article_type==='text'"
+         class="pure-control-group">
+      <label for="text">Text</label>
+      <textarea id="text"
+                name="text"
+                class="pure-input-1-2"
+                [(ngModel)]="article.text"></textarea>
+    </div>
+
+    <div *ngIf="article.article_type==='image'"
+         class="pure-control-group">
+      <label for="image">Image</label>
+      <input name="image"
+             type="file"
+             id="image"
+             class="pure-input-1-2"
+             [(ngModel)]="article.link">
+    </div>
+
+    <div *ngIf="article.article_type!=='text' && article.article_type!=='image'"
+         class="pure-control-group">
+      <label for="link">Link</label>
+      <input name="link"
+             id="link"
+             class="pure-input-1-2"
+             [(ngModel)]="article.link">
+   </div>
+
+    <div *ngIf="article.article_type!=='text'"
+         class="pure-control-group">
+      <label for="text">Description</label>
+      <textarea id="text"
+                name="text"
+                class="pure-input-1-2"
+                [(ngModel)]="article.text"></textarea>
+    </div>
+
+    <div class="pure-controls">
+      <p *ngIf="!user">Must be logged in to submit</p>
+
+      <button *ngIf="user"
+              class="pure-button pure-button-primary"
+              (click)="submit()">Submit</button>
+    </div>
+  </fieldset>
+</form>
 <div class="preview">
   <h2>Preview</h2>
   <app-article [(article)]='article'></app-article>

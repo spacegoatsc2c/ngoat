@@ -26,6 +26,8 @@ export class ArticleWriterComponent implements OnInit {
   public bosses: Boss[];
   public raids: Raid[];
 
+  public filesToUpload: Array<File>;
+
   constructor(private articleService: ArticleService,
               private userService: UserService,
               private characterService: CharacterService,
@@ -40,9 +42,12 @@ export class ArticleWriterComponent implements OnInit {
     this.raidService.getRaids().then(
         raids => this.getCurrentRaid(raids)
     );
-    this.userService.getUser().then(
-      user => {this.user = user; this.character = this.user.main; }
-    );
+    let token = this.userService.token;
+    if(token){
+      this.userService.getUser(token).then(
+        user => {this.user = user; this.character = this.user.main; }
+      );
+    }
   }
 
   getCurrentRaid(raids: Raid[]){
@@ -59,7 +64,12 @@ export class ArticleWriterComponent implements OnInit {
       )
   }
 
+  fileChangeEvent(fileInput: any){
+      this.filesToUpload = <Array<File>> fileInput.target.files;
+  }
+
   submit(){
+    // First upload image, then set link to the upload result
     console.log(this.article);
     this.articleService.publishArticle(this.article, this.user.token);
     this.article = <Article>{};
