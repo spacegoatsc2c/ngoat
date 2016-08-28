@@ -6,9 +6,20 @@
 </div>
 <div *ngIf="!logged_in">
   <p *ngIf="errorText">{{errorText}}</p>
-  <form class="form-inline">
-    <input type="text" placeholder="Username" class="form-control" [(ngModel)]="username" name="username">
-    <input type="password" placeholder="Password" class="form-control" [(ngModel)]="password" name="password">
-    <button type="submit" class="btn" (click)="login()">Login</button>
+  <form class="pure-form">
+      <fieldset>
+          <legend>Login</legend>
+          <input type="text"
+                 name="username"
+                 placeholder="Username"
+                 [(ngModel)]="username">
+          <input type="password"
+                 name="password"
+                 placeholder="Password"
+                 [(ngModel)]="password">
+          <button type="submit"
+                  (click)="login()"
+                  class="pure-button pure-button-primary">Sign in</button>
+      </fieldset>
   </form>
 </div>
