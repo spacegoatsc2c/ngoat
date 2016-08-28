@@ -27,6 +27,12 @@ export class ProfileComponent implements OnInit {
     }
   }
 
+  logout(){
+    this.user = null;
+    this.userService.logout();
+    this.logged_in = false;
+  }
+
   login(){
     this.userService.login(this.username, this.password).then(
       user => {this.user = user; this.logged_in = true}

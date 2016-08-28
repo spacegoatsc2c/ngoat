@@ -9,15 +9,8 @@ import { UserService } from './user.service';
   styleUrls: ['app.component.css'],
 })
 export class AppComponent implements OnInit {
-  public user: User;
 
-  constructor(private userService: UserService) { }
+  constructor() { }
 
-  ngOnInit(){
-    if(this.userService.token){
-      this.userService.getUser().then(
-          user => this.user = user
-      );
-    }
-  }
+  ngOnInit(){ }
 }

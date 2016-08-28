@@ -20,15 +20,15 @@ export class UserService {
     getUser(token: string){
       let headers = new Headers({'Content-Type': 'application/json',
                                  'Authorization': 'Token ' + token });
-      let options = new RequestOptions({headers: headers});
+      let options = new RequestOptions({headers: headers, body: ""});
 
       return this.http.get(this.userUrl, options)
            .toPromise()
-           .then(response => response.json().results as User)
+           .then(response => response.json() as User)
            .catch(this.handleError);
     }
 
-    private loginUrl: string = '/api/auth/';
+    private loginUrl: string = 'api/auth/';
 
     login(username: string, password: string){
       let body = JSON.stringify({'username':username, 'password':password});
@@ -46,8 +46,13 @@ export class UserService {
       return this.getUser(token);
     }
 
+    logout(){
+      this.token = null;
+      localStorage.removeItem('user');
+    }
+
     private handleError(error: any) {
-      console.error('An error occurred', error);
-      return Promise.reject(error.message || error);
+      console.error('An userservice error occurred', error);
+      return Promise.reject(error);
     }
 }

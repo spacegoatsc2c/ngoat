@@ -21,6 +21,7 @@
     <div *ngIf="characters" class="pure-control-group">
       <label for="characterSelect">Charcter</label>
       <select [(ngModel)]="article.character"
+              name="character"
               id="characterSelect">
         <option></option>
         <option *ngFor="let c of characters"
@@ -31,6 +32,7 @@
     <div *ngIf="raids" class="pure-control-group">
       <label for="raidSelect">Raid</label>
       <select [(ngModel)]="raid"
+              name="raid"
               (change)="getBosses()"
               id="raidSelect">
         <option></option>
@@ -40,7 +42,9 @@
 
       <div *ngIf="bosses">
         <label for="bossSelect">Boss</label>
-        <select [(ngModel)]="article.boss" id="bossSelect">
+        <select [(ngModel)]="article.boss"
+                name="boss"
+                id="bossSelect">
           <option></option>
           <option *ngFor="let b of bosses"
                   [ngValue]="b">{{b.name}}</option>
@@ -64,7 +68,7 @@
              type="file"
              id="image"
              class="pure-input-1-2"
-             [(ngModel)]="article.link">
+             (change)="fileChangeEvent($event)">
     </div>
 
     <div *ngIf="article.article_type!=='text' && article.article_type!=='image'"

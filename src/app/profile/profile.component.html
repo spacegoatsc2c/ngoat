@@ -4,6 +4,7 @@
   </p>
   <div *ngIf="logged_in">
     <p>{{user.username}}</p>
+    <button class="pure-button" (click)="logout()">Logout</button>
   </div>
   <div *ngIf="!logged_in">
     <p *ngIf="errorText">{{errorText}}</p>

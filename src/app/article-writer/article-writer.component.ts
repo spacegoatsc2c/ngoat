@@ -71,7 +71,7 @@ export class ArticleWriterComponent implements OnInit {
   submit(){
     // First upload image, then set link to the upload result
     console.log(this.article);
-    this.articleService.publishArticle(this.article, this.user.token);
+    this.articleService.publishArticle(this.article, this.userService.token);
     this.article = <Article>{};
   }
 
