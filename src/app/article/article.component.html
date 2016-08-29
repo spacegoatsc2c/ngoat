@@ -1,6 +1,50 @@
-<small>{{article.article_type}}</small>
-<img *ngIf="article.character" src="{{article.character.portrait}}">
-<p *ngIf="article.boss">{{article.boss.name}}</p>
-<a *ngIf="article.link" href={{article.link}}>Link</a>
-<p *ngIf="article.text">{{article.text}}</p>
-<small *ngIf="article.author">{{article.author.username}}</small>
+<div class="pure-g article">
+    <div class="pure-u-1-5 portraits">
+        <img *ngIf="article.character"
+             class="portrait"
+             [src]="article.character.portrait">
+        <img *ngIf="article.boss"
+             class="portrait"
+             [src]="article.boss.logo">
+        <small *ngIf="article.author"
+               class="author_name">{{article.author.username}}</small>
+    </div>
+    <div class="pure-u-4-5 content">
+        <div *ngIf="article.article_type==='link'" class="link_type">
+            <a [href]="article.link">{{article.link}}</a>
+            <div *ngIf="article.text"
+                   class="comment">
+                   <small>{{article.text}}</small>
+            </div>
+        </div>
+        <div *ngIf="article.article_type==='log'" class="log_type">
+            <a [href]="article.link">{{article.link}}</a>
+            <div *ngIf="article.text"
+                   class="comment">
+                   <small>{{article.text}}</small>
+            </div>
+        </div>
+        <div *ngIf="article.article_type==='text'" class="text_type">
+            <p>{{article.text}}</p>
+        </div>
+        <div *ngIf="article.article_type==='image'" class="image_type">
+            <a [href]="safeurl(article.link)">
+                <img class="image" [src]="article.link">
+            </a>
+            <div *ngIf="article.text"
+                   class="comment">
+                   <small>{{article.text}}</small>
+            </div>
+        </div>
+        <div *ngIf="article.article_type==='youtube'" class="youtube_type">
+            <iframe class="youtube"
+                    [src]="youtube(article.link)"
+                    frameborder="0"
+                    allowfullscreen></iframe>
+            <div *ngIf="article.text"
+                   class="comment">
+                   <small>{{article.text}}</small>
+            </div>
+        </div>
+    </div>
+</div>

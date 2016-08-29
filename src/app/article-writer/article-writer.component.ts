@@ -45,7 +45,9 @@ export class ArticleWriterComponent implements OnInit {
     let token = this.userService.token;
     if(token){
       this.userService.getUser(token).then(
-        user => {this.user = user; this.character = this.user.main; }
+        user => {this.user = user;
+                 this.character = this.user.main;
+                 this.article.author = user }
       );
     }
   }

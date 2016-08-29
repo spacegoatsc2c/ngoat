@@ -1,0 +1,44 @@
+.portrait {
+    width: 95%;
+    border-radius: 25%;
+}
+
+.portraits {
+    
+}
+
+.article {
+    padding: 5px;
+}
+
+.image {
+    width: 95%;
+}
+
+.youtube {
+    width: 95%;
+}
+
+.author_name {
+    padding-left: 5px;
+}
+
+.comment {
+    text-align: center;
+    width: 95%;
+}
+
+.text_type {
+    margin: 5px;
+}
+
+p:first-child:first-letter {
+    float: left;
+    color: #903;
+    font-size: 75px;
+    line-height: 60px;
+    padding-top: 4px;
+    padding-right: 8px;
+    padding-left: 3px;
+    font-family: Georgia;
+}

@@ -1,5 +1,7 @@
 import { NgModule }       from '@angular/core';
-import { BrowserModule  } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
+import { DomSanitizationService,
+         BROWSER_SANITIZATION_PROVIDERS} from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule }    from '@angular/http';
 import { routing,
@@ -43,6 +45,8 @@ import { UserService } from './user.service';
       routing,
     ],
     providers: [
+      DomSanitizationService,
+      BROWSER_SANITIZATION_PROVIDERS,
       UserService,
       RaidService,
       CharacterService,

@@ -1,1 +1,5 @@
-<app-article *ngFor='let article of articles' [article]='article'></app-article>
+<div class="pure-g">
+    <app-article *ngFor='let article of articles'
+                 class="pure-u-1-2"
+                 [article]='article'></app-article>
+</div>
