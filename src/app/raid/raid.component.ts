@@ -21,6 +21,20 @@ export class RaidComponent implements OnInit {
     );
   }
 
+  is_prev(){
+      if(this.raids && this.currentRaid){
+          return this.raids.indexOf(this.currentRaid) < this.raids.length - 1
+      }
+      return false;
+  }
+
+  is_next(){
+      if(this.raids && this.currentRaid){
+          return this.raids.indexOf(this.currentRaid) > 0
+      }
+      return false;
+  }
+
   initRaids(raids:Raid[]){
     this.raids = raids;
     this.changeRaid(raids[0]);
@@ -31,6 +45,23 @@ export class RaidComponent implements OnInit {
     this.raidService.getBosses(this.currentRaid).then(
       bosses => this.bosses = bosses
     );
+  }
+
+  prev(){
+      if(this.raids && this.currentRaid){
+          if(this.raids.indexOf(this.currentRaid) < this.raids.length - 1){
+              this.changeRaid(this.raids[this.raids.indexOf(this.currentRaid) + 1])
+          }
+      }
+  }
+
+  next(){
+      if(this.raids && this.currentRaid){
+          if(this.raids.indexOf(this.currentRaid) > 0){
+              this.changeRaid(this.raids[this.raids.indexOf(this.currentRaid) - 1])
+          }
+      }
+
   }
 
 }

@@ -9,4 +9,5 @@ export interface Article {
     character?: Character;
     link?: string;
     article_type: string;
+    created_on?: string;
 }

@@ -1,16 +1,31 @@
-<a routerLink="">Home</a>
-<a routerLink="/profile">Profile</a>
-<a routerLink="/submit">Submit</a>
-<div class="main-outlet pure-g">
-  <div class="pure-u-4-5">
-    <router-outlet ></router-outlet>
-  </div>
-  <div class="pure-u-1-5">
-    <div class="roster">
-      <app-roster></app-roster>
+<div id="banner"
+     style="background-image:url('https://goats.space/static/headers/header13.jpg')"></div>
+<div class="main-outlet">
+    <div class="pure-menu pure-menu-horizontal">
+        <a class="pure-menu-heading pure-menu-link" routerLink="">
+            <img src="https://goats.space/static/logo.png"
+                 style="width:150px">
+        </a>
+        <ul class="pure-menu-list right">
+            <li class="pure-menu-item">
+                <a class="pure-menu-link" routerLink="/profile">Profile</a>
+            </li>
+            <li class="pure-menu-item">
+                <a class="pure-menu-link" routerLink="/submit">Submit</a>
+            </li>
+        </ul>
     </div>
-    <div class="raid">
-      <app-raid></app-raid>
+    <div class="pure-g">
+      <div class="pure-u-4-5">
+        <router-outlet ></router-outlet>
+      </div>
+      <div class="pure-u-1-5">
+        <div class="roster">
+          <app-roster></app-roster>
+        </div>
+        <div class="raid">
+          <app-raid></app-raid>
+        </div>
+      </div>
     </div>
-  </div>
 </div>

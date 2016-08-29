@@ -1,15 +1,17 @@
 <div class="pure-g article">
-    <div class="pure-u-1-5 portraits">
+    <div class="pure-u-1-6 portraits">
         <img *ngIf="article.character"
+             [routerLink]="['/character', article.character.id]"
              class="portrait"
              [src]="article.character.portrait">
         <img *ngIf="article.boss"
+             [routerLink]="['/boss', article.boss.id]"
              class="portrait"
              [src]="article.boss.logo">
         <small *ngIf="article.author"
                class="author_name">{{article.author.username}}</small>
     </div>
-    <div class="pure-u-4-5 content">
+    <div class="pure-u-5-6 content">
         <div *ngIf="article.article_type==='link'" class="link_type">
             <a [href]="article.link">{{article.link}}</a>
             <div *ngIf="article.text"

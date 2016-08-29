@@ -2,6 +2,10 @@
   font-weight: bold;
 }
 
+tr {
+    cursor: pointer;
+}
+
 .name {
   min-width: 125px;
   text-align: left;

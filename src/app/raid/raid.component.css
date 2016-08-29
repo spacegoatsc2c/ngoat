@@ -2,3 +2,7 @@
   -webkit-filter: contrast(0);
   -moz-filter: contrast(0);
 }
+
+img {
+    cursor: pointer;
+}

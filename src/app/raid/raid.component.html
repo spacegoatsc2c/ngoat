@@ -1,6 +1,17 @@
-<h3>Raid</h3>
 <div *ngIf="currentRaid">
-  <h5>{{currentRaid.name}}</h5>
+  <div class="pure-g">
+      <div *ngIf="is_prev()"
+           class="pure-u-1-5"
+           (click)="prev()">
+          <h5>[Prev]</h5>
+      </div>
+      <h5 class="pure-u-3-5">{{currentRaid.name}}</h5>
+      <div *ngIf="is_next()"
+           class="pure-u-1-5"
+           (click)="next()">
+          <h5>[Next]</h5>
+      </div>
+  </div>
   <div class="pure-g">
     <div *ngFor="let boss of bosses"
           class="pure-u-1-2">
