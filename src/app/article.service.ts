@@ -9,6 +9,17 @@ export class ArticleService {
 
   constructor(private http: Http) { }
 
+  private imageUrl = 'api/images/';
+
+  publishImage(image: Array<File>, token: string){
+      let headers = new Headers({'Authorization': 'Token ' + token });
+      return this.http.post(
+          this.imageUrl, image, {headers: headers})
+          .toPromise()
+          .then(res => res.json())
+          .catch(this.handleError);
+  }
+
   private articleUrl = 'api/articles/';
 
   publishArticle(article: Article, token: string){
