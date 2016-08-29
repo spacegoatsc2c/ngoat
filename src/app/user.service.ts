@@ -43,6 +43,7 @@ export class UserService {
 
     private requestUser(token: string){
       this.token = token;
+      localStorage.setItem('user', token);
       return this.getUser(token);
     }
 

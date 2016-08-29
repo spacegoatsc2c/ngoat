@@ -1,0 +1,46 @@
+* {
+  font-weight: bold;
+}
+
+.name {
+  min-width: 125px;
+  text-align: left;
+}
+
+.Demon_Hunter {
+    background-color:#A330C9;
+}
+.Death {
+    background-color:#C41F3B;
+}
+.Druid_Knight{
+    background-color:#FF7D0A;
+}
+.Hunter{
+    background-color:#ABD473;
+}
+.Mage{
+    background-color:#69CCF0;
+}
+.Monk{
+    background-color:#00ffba;
+}
+.Paladin{
+    background-color:#F58CBA;
+}
+.Priest{
+    background-color:#FFFFFF;
+}
+.Rogue{
+    background-color:#FFF569;
+}
+.Shaman{
+    background-color:#0070DE;
+    border: 1px #004f9c solid;
+}
+.Warlock{
+    background-color:#9482C9;
+}
+.Warrior{
+    background-color:#C79C6E;
+}

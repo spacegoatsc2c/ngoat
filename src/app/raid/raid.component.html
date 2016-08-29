@@ -1,7 +1,14 @@
-<h2>Raid</h2>
+<h3>Raid</h3>
 <div *ngIf="currentRaid">
-  <span>{{currentRaid.name}}</span>
-  <div *ngFor="let boss of bosses">
-    <a [routerLink]="['/boss', boss.id]" routerLinkActive="active">{{boss.name}}</a>
+  <h5>{{currentRaid.name}}</h5>
+  <div class="pure-g">
+    <div *ngFor="let boss of bosses"
+          class="pure-u-1-2">
+      <img [routerLink]="['/boss', boss.id]"
+           [class.dead]="boss.is_dead"
+           src="{{boss.logo}}"
+           title="{{boss.name}}"
+           routerLinkActive="active">
+    </div>
   </div>
 </div>

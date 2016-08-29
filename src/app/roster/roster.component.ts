@@ -11,12 +11,11 @@ import { Character } from '../character';
 export class RosterComponent implements OnInit {
   public characters:Character[];
 
-  constructor(private _characterService:CharacterService) { }
+  constructor(private characterService:CharacterService) { }
 
   ngOnInit() {
-    this._characterService.getCharacters().then(
+    this.characterService.getCharacters().then(
       characters => this.characters = characters
     );
   }
-
 }
