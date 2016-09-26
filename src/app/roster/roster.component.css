@@ -6,6 +6,10 @@ tr {
     cursor: pointer;
 }
 
+.ilvl {
+    padding-left: 5px;
+}
+
 .name {
   min-width: 125px;
   text-align: left;
