@@ -1,15 +1,15 @@
 <div *ngIf="currentRaid">
   <div class="pure-g">
+      <h5 class="pure-u-1 header">{{currentRaid.name}}</h5>
       <div *ngIf="is_prev()"
-           class="pure-u-1-5"
+           class="pure-u-1-2"
            (click)="prev()">
-          <h5>[Prev]</h5>
+          <span>[Prev]</span>
       </div>
-      <h5 class="pure-u-3-5">{{currentRaid.name}}</h5>
       <div *ngIf="is_next()"
-           class="pure-u-1-5"
+           class="pure-u-1-2"
            (click)="next()">
-          <h5>[Next]</h5>
+          <span>[Next]</span>
       </div>
   </div>
   <div class="pure-g">

@@ -6,3 +6,7 @@
 img {
     cursor: pointer;
 }
+
+.header {
+    margin-bottom: 10px;
+}
