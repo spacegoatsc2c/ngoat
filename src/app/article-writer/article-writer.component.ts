@@ -84,7 +84,7 @@ export class ArticleWriterComponent implements OnInit {
     // First upload image, then set link to the upload result
     console.log(this.article);
     this.articleService.publishArticle(this.article, this.userService.token);
-    this.article = <Article>{};
+    this.ngOnInit();
   }
 
 }
