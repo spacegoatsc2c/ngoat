@@ -9,6 +9,7 @@ export interface Raid {
 }
 
 export interface Boss {
+    id: number;
     name: string;
     logo: string;
     raid: Raid;

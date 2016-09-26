@@ -42,6 +42,24 @@ export class ArticleService {
          .catch(this.handleError);
   }
 
+  private bossArticleUrl = 'api/articles/?boss__id='
+
+  getBossArticles(id: number){
+    return this.http.get(this.bossArticleUrl + id)
+         .toPromise()
+         .then(response => response.json().results as Article[])
+         .catch(this.handleError);
+  }
+
+  private characterArticleUrl = 'api/articles/?character__id='
+
+  getCharacterArticles(id: number){
+    return this.http.get(this.characterArticleUrl + id)
+         .toPromise()
+         .then(response => response.json().results as Article[])
+         .catch(this.handleError);
+  }
+
   getArticle(id: number){
     return this.http.get(this.articleUrl + id + '/')
          .toPromise()

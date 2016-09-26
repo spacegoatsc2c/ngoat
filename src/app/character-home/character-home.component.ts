@@ -15,6 +15,7 @@ import { Article } from '../article';
 export class CharacterHomeComponent implements OnInit {
   private sub: Subscription;
   public character: Character;
+  private articles: Article[];
 
   constructor(private characterService: CharacterService,
               private articleService: ArticleService,
@@ -30,6 +31,9 @@ export class CharacterHomeComponent implements OnInit {
 
    private setCharacter(character: Character){
      this.character = character;
+     this.articleService.getCharacterArticles(this.character.id).then(
+         articles => this.articles = articles
+     );
    }
 
 }

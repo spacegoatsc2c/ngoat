@@ -2,3 +2,4 @@
   character-home works!
 </p>
 <h3 *ngIf="character">{{character.name}}</h3>
+<app-feed *ngIf="articles" [(articles)]='articles'></app-feed>
