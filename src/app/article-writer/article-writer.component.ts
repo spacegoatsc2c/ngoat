@@ -72,7 +72,13 @@ export class ArticleWriterComponent implements OnInit {
 
   submit(){
     if(this.article.article_type === 'image'){
-        this.articleService.publishImage(this.filesToUpload, this.userService.token);
+        this.articleService.publishImage(this.filesToUpload, this.userService.token).then(
+            location => {
+                this.article.link = location;
+                this.articleService.publishArticle(this.article, this.userService.token);
+                this.article = <Article>{};
+            }
+        );
         return;
     }
     // First upload image, then set link to the upload result

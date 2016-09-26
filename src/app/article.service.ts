@@ -13,10 +13,11 @@ export class ArticleService {
 
   publishImage(image: Array<File>, token: string){
       let headers = new Headers({'Authorization': 'Token ' + token });
-      return this.http.post(
-          this.imageUrl, image, {headers: headers})
+      let data = new FormData();
+      data.append("file1", image[0]);
+      return this.http.post(this.imageUrl, data, {headers: headers})
           .toPromise()
-          .then(res => res.json())
+          .then(res => res.json().location)
           .catch(this.handleError);
   }
 

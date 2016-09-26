@@ -30,8 +30,8 @@
             <p>{{article.text}}</p>
         </div>
         <div *ngIf="article.article_type==='image'" class="image_type">
-            <a [href]="safeurl(article.link)">
-                <img class="image" [src]="article.link">
+            <a [href]="safeurl('/full' + article.link)">
+                <img class="image" [src]="article.link + '/400'">
             </a>
             <div *ngIf="article.text"
                    class="comment">
