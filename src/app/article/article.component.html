@@ -20,10 +20,9 @@
             </div>
         </div>
         <div *ngIf="article.article_type==='log'" class="log_type">
-            <a [href]="article.link">{{article.link}}</a>
-            <div *ngIf="article.text"
-                   class="comment">
-                   <small>{{article.text}}</small>
+            <a [href]="article.link">World of Logs</a>
+            <div *ngIf="article.text">
+                   <p>{{article.text}}</p>
             </div>
         </div>
         <div *ngIf="article.article_type==='text'" class="text_type">
