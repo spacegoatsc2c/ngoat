@@ -37,7 +37,7 @@ export class ProfileComponent implements OnInit {
     this.userService.login(this.username, this.password).then(
       user => {this.user = user; this.logged_in = true}
     ).catch(
-      error => this.errorText = error
+      error => this.errorText = error._body
     );
   }
 
