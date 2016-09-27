@@ -1,6 +1,8 @@
-<h3 *ngIf="character">
-    <a [href]="character_url">
-        {{character.name}}
-    </a>
-</h3>
+<div *ngIf="character">
+    <h3>
+        <a [href]="character_url">{{character.name}}</a>
+        <span *ngIf="character.ilvl"> - {{character.ilvl}}</span>
+    </h3>
+    <small *ngIf="character.player">{{character.player.username}}</small>
+</div>
 <app-feed *ngIf="articles" [(articles)]='articles'></app-feed>

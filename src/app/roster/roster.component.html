@@ -6,10 +6,14 @@
     </tr>
   </thead>
   <tbody *ngFor="let character of characters">
-    <tr [routerLink]="['/character', character.id]">
+    <tr>
       <td [class]="character.wowclass"
+          [routerLink]="['/character', character.id]"
           class="name">{{character.name}}</td>
-      <td class="ilvl">{{character.ilvl}}</td>
+      <td class="ilvl">
+          <a href="http://us.battle.net/wow/en/character/{{character.realm}}/{{character.name}}/advanced">
+              {{character.ilvl}}
+          </a></td>
     </tr>
   </tbody>
 </table>

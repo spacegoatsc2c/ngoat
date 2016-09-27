@@ -1,5 +1,5 @@
 <div class="pure-g article">
-    <div class="pure-u-1-6 portraits">
+    <div class="pure-u-1-8 portraits">
         <img *ngIf="article.character"
              [routerLink]="['/character', article.character.id]"
              class="portrait"
@@ -8,10 +8,8 @@
              [routerLink]="['/boss', article.boss.id]"
              class="portrait"
              [src]="article.boss.logo">
-        <small *ngIf="article.author"
-               class="author_name">{{article.author.username}}</small>
     </div>
-    <div class="pure-u-5-6 content">
+    <div class="pure-u-7-8 content">
         <div *ngIf="article.article_type==='link'" class="link_type">
             <a [href]="article.link">{{article.link}}</a>
             <div *ngIf="article.text"
@@ -20,10 +18,10 @@
             </div>
         </div>
         <div *ngIf="article.article_type==='log'" class="log_type">
-            <a [href]="article.link">World of Logs</a>
-            <div *ngIf="article.text">
-                   <p>{{article.text}}</p>
-            </div>
+            <a class="wol_float" [href]="article.link">
+                <img class="wol" src="https://www.warcraftlogs.com/img/common/warcraft-logo.png">
+            </a>
+            <p *ngIf="article.text">{{article.text}}</p>
         </div>
         <div *ngIf="article.article_type==='text'" class="text_type">
             <p>{{article.text}}</p>
@@ -47,5 +45,7 @@
                    <small>{{article.text}}</small>
             </div>
         </div>
+        <small *ngIf="article.author"
+               class="author_name">-{{article.author.username}}</small>
     </div>
 </div>

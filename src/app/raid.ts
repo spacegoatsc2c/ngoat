@@ -14,6 +14,6 @@ export interface Boss {
     logo: string;
     raid: Raid;
     is_dead: boolean;
-    strategy_guide?: string;
+    guide?: string;
     ordering: number;
 }
