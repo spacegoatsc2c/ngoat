@@ -16,6 +16,7 @@ export class CharacterHomeComponent implements OnInit {
   private sub: Subscription;
   public character: Character;
   private articles: Article[];
+  public character_url: string;
 
   constructor(private characterService: CharacterService,
               private articleService: ArticleService,
@@ -34,6 +35,7 @@ export class CharacterHomeComponent implements OnInit {
      this.articleService.getCharacterArticles(this.character.id).then(
          articles => this.articles = articles
      );
+     this.character_url = "http://us.battle.net/wow/en/character/" + character.realm + "/" + character.name + "/advanced"
    }
 
 }

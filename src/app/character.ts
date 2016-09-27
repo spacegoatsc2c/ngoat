@@ -3,6 +3,7 @@ import { User } from './user';
 export class Character {
     id: number;
     name: string;
+    realm: string;
     player: User;
     ilvl: number;
     tradeskill1: string;
